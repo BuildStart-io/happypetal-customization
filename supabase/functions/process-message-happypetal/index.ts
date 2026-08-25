@@ -258,7 +258,7 @@ async function processMessage(
 
   let aiResponse: Response;
   try {
-    aiResponse = await fetch(`${supabaseUrl}/functions/v1/ai-chat`, {
+    aiResponse = await fetch(`${supabaseUrl}/functions/v1/ai-chat-happypetal`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${supabaseServiceKey}`,
@@ -534,7 +534,7 @@ async function sendWhatsApp(
   const body: any = { to, message, sessionApiKey };
   if (imageUrl) body.imageUrl = imageUrl;
 
-  const res = await fetch(`${supabaseUrl}/functions/v1/send-whatsapp`, {
+  const res = await fetch(`${supabaseUrl}/functions/v1/send-whatsapp-happypetal`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${supabaseServiceKey}`,
@@ -559,7 +559,7 @@ async function sendWhatsAppMedia(
   mediaUrl: string,
   sessionApiKey: string
 ) {
-  const res = await fetch(`${supabaseUrl}/functions/v1/send-whatsapp`, {
+  const res = await fetch(`${supabaseUrl}/functions/v1/send-whatsapp-happypetal`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${supabaseServiceKey}`,
@@ -733,7 +733,7 @@ async function maybeNotifyQualifiedLead(
       sendApiKey = sessionData?.session_api_key || null;
     }
 
-    const res = await fetch(`${supabaseUrl}/functions/v1/send-whatsapp`, {
+    const res = await fetch(`${supabaseUrl}/functions/v1/send-whatsapp-happypetal`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${supabaseServiceKey}`,
